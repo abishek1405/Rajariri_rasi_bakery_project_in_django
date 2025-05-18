@@ -1,0 +1,181 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 col-md-6 d-flex justify-content-center banner-container">
+                <div class="d-flex flex-column justify-content-center">
+                    <h1 class="text-center">Welcome to Admin Page!</h1>
+                    <p class="baner-paragraph">
+                        At Rajagiri Rasi Bakery, we believe that every bite should be a delightful experience. Our passion for baking drives us to create mouth-watering pastries, cakes, and breads that are as beautiful to look at as they are delicious to eat. We use only the finest ingredients, ensuring that each product is made with love and care.
+                    </p>
+                    <div class="text-center div-btn">
+                        <a href="/admin_review"><button type="button" class="btn1 btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Reviews & Comments</button></a>
+                        <!-- <button class="btn2 btn btn-warning">Order Now</button> -->
+                    </div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Our Specials </h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <ul>
+        <li><b>Bread:</b></li>
+            <p> Freshly baked daily, our bread selection ranges from classic white and whole wheat to artisanal sourdough and multigrain loaves.</p>
+        <li><b>Cakes:</b></li>
+            <p> Perfect for any celebration, our cakes are available in a variety of flavors, including chocolate, vanilla, red velvet, and custom creations.</p>
+        <li><b>Pastries:</b></li>
+            <p> Indulge in our delectable pastries, such as croissants, danishes, and éclairs, made with buttery, flaky perfection.</p>
+        <li><b>Cookies:</b></li>
+            <p> Our cookies are baked to perfection, with options like chocolate chip, oatmeal raisin, and festive seasonal varieties.</p>
+        
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+                   
+                    
+
+
+                </div>
+            </div>
+            <div class="col-4 col-md-6 banner-img d-md-flex align-items-center justify-content-center">
+                <img src="{% static 'img/banner2.png' %}" class="w-100 d-none d-md-block" alt="">
+                <video src="{% static 'img/bannerclip.mp4' %}" class="w-100 video d-block d-md-none" autoplay muted loop></video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3 class="para head">Offer Form</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label  for="name">Offers:</label>
+                            <input type="text" value="{{ off.of }}" class="mt-2 form-control" name = 'offer' placeholder="RAJAGIRI RASI BAKERY OFFERS">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container mt-3">
+    <div class="table-responsive">
+        <table class="table text-nowrap mb-0 align-middle">
+          {% if off %}
+          <thead class="text-dark fs-4">
+            <tr>
+              <th class="border-bottom-0">
+                <h6 class="fw-semibold mb-0">Image</h6>
+              </th>
+              <th class="border-bottom-0">
+                <h6 class="fw-semibold mb-0">Action</h6>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr>
+             <td class="border-bottom-0">
+               <p class="mb-0 fw-normal">{{ off.of }}</p>
+             </td>
+             <td class="border-bottom-0">
+                <a href="/off_delete/{{ off.id }}"><i style="color: red; font-size: 20px; margin-left: 15px;" class="fa fa-trash"></i></a>
+              </td>
+           </tr> 
+            
+           {% else %}
+           <tr>
+            
+              <td colspan="5"><center>-----------------No data found-----------------</center></td>
+            
+           </tr>
+           {% endif %}       
+          </tbody>
+        </table>
+        
+        
+      </div>    
+</div>
+
+
+
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4 fantasy">Our Signature Creations</h2>
+    <div class="row">
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake1.png' %}" class="w-100" alt="Cake 1">
+                <p class="text-center">Choco Strawberry</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake2.png' %}" class="w-100" alt="Cake 2">
+                <p class="text-center">Black Forest </p>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake3.png' %}" class="w-100" alt="Cake 3">
+                <p class="text-center">Red Velvet</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake4.png' %}" class="w-100" alt="Cake 4">
+                <p class="text-center">Light Chocolate</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake5.png' %}" class="w-100" alt="Cake 4">
+                <p class="text-center">Pink Vanilla</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 mb-4">
+            <div class="shadow p-3">
+                <img src="{% static 'img/cakes/cake6.png' %}" class="w-100" alt="Cake 4">
+                <p class="text-center">Barbie Doll</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

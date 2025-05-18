@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>Rajagiri Rasi Bakery</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}" type="image/png">
+    <style>
+        .banner-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }      
+        video {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <style>
+        body{
+            /* background: linear-gradient(to right, #FFEACF, #c5bccf, #FFEACF);    */
+            background-color: #FFEACF;
+        }
+        .nav-head{
+            text-decoration: none;
+            margin-left: 10px;
+            color: #FD0000 !important;
+            font-weight: bolder;
+            letter-spacing: 2px;
+            text-shadow: 0px 0px 20px #fd00007c;
+            font-size: large;
+        }
+        .btn1{
+            color: #FD0000 !important;
+            border: 1px solid #FD0000;
+            padding: 5px 30px;
+            font-family: 'roboto';
+        }
+        .btn2{
+            color: #ffffff !important;
+            border: 1px solid #FD0000;
+            padding: 5px 30px;
+            font-family: 'roboto';
+            background-color: #FD0000;
+        }
+        .navbar{
+            background-color: #FFEACF !important;
+        }
+        .banner{
+            height: 100vh;
+            background-color: #FFEACF;
+        }
+        .banner-container{
+            height: 100vh;
+        }
+        .banner-container h1{
+            font-family: Copperplate, Papyrus, fantasy;
+            font-weight: bolder;
+        }
+        .banner-container p{
+            font-family: Garamond, serif;
+            font-weight:600;
+        }
+        .video{
+            border-radius: 10px;
+        }
+        .modal-body p{
+            text-indent: 30px;
+        }
+        .navbar-nav a{
+            color: #FD0000 !important;
+        }
+        .navbar-toggler{
+            font-size: 10px !important;
+        }
+        @media screen and (max-width: 480px) {
+            .nav-head{
+                font-size: medium;
+            }
+
+            .banner-container h1{
+            font-size: 10px;
+        }
+        .banner-container p{
+            font-size: 7px;
+        }
+        .banner{
+            height: 30vh;
+        }
+        .banner-container{
+            height: 30vh;
+        }
+        .btn1{
+            padding: 3px 15px;
+            font-size: 6px;
+        }
+        .btn2{
+            padding: 3px 15px;
+            font-size: 6px;
+        }
+        .div-btn{
+            margin-top: -18px;
+        }
+        .shadow p{
+            font-size: 12px;
+        }
+        }
+        .shadow p{
+            font-family: "Sofia", sans-serif;
+            font-weight: 700;
+        }
+        .fantasy{
+            font-family: "Sofia", sans-serif;
+            font-weight: bolder;
+            color:#FD0000;
+        }
+        .head{
+            color: #FD0000;
+        }
+        .para{
+            font-family: "Sofia", sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  bg-dark ">
+        <div class="container">
+            <img src="{% static 'img/logo.png' %}" class="logo" width="50px" alt="">
+            <a href="" class="nav-head ">RAJAGIRI RASI BAKERY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+                <div class="navbar-nav nav-links">
+                    <a class="nav-link active" aria-current="page" href="/dashboard"><i class="fa-solid fa-house"></i> Home</a>
+                    <a class="nav-link active" aria-current="page" href="/add_our_banner"><i class="fa-solid fa-plus"></i> Add Banner</a>
+                    <a class="nav-link active" href="/add_category"><i class="fa-solid fa-plus"></i> Add Category</a>
+                    <a class="nav-link active" href="/add_recipe"><i class="fa-solid fa-plus"></i> Add Recipes</a>
+                    <a class="nav-link active" href="/our_products"><i class="fa-solid fa-cookie"></i>Our Products</a>
+                    <a class="nav-link active" href="/admin_order">
+                        <i class="fa-solid fa-gift"></i> Orders 
+                        {% if dataaaa %}
+                        <span class="badge bg-primary">{{ dataaaa }}</span>
+                        {% endif %}
+                    </a>
+                    
+                    <a class="nav-link active" href="/user"><i class="fa-solid fa-user"></i> users</a>
+                    <a class="nav-link active" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+      </nav>
+
+      {% block content %}
+    
+
+
+
+
+      {% endblock %}
+    
+<br>
+
+    
+<style>
+    
+.footer-heading{
+    color: white;
+    font-size: 13px;
+    text-align: center;
+}
+.footer-paragraph{
+    color: white;
+    font-size: 10px;
+    text-align: center;
+}
+
+.footer-rights{
+    color: #ffffff;
+}
+
+.footer{
+    background-color: black;
+}
+
+.footer-container{
+    border-right: 2px solid white;
+}
+</style>
+<div class="footer">
+    <div class="container">
+        <div class="row pb-3 pt-5">
+            <div class="footer-container col-12 col-md-3 col-lg-3 col-xl-3">
+                <h1 class="footer-heading"> Rajagiri Rasi Bakery</h1>
+                <p></p>
+                <p class="footer-paragraph">Delighting you with freshly baked goods every day. Our passion for baking ensures that every bite is a moment of happiness.</p>
+            </div>
+                        
+            <div class="footer-container col-12 col-md-3 col-lg-3 col-xl-3">
+                <h1 class="footer-heading"> Connect With Us </h1>
+                <p class="footer-paragraph">Stay in the loop with the latest updates, special offers, and foodie adventures. Follow us on social media for a daily dose of gastronomic inspiration:</p>
+            </div>
+
+        
+
+
+
+            <div class="footer-container col-12 col-md-3 col-lg-3 col-xl-3">
+                <h1 class="footer-heading"> Bakery Highlights </h1>
+                <p class="footer-paragraph">Discover what makes us special:</p>
+                    <p class="footer-paragraph">Artisan Breads <br>
+                    Handcrafted Cakes <br>
+                    Seasonal Specials <br>
+                    Custom Orders</p>
+                
+            </div>
+
+
+        
+            <div class="footer-paragraph col-12 col-md-3 col-lg-3 col-xl-3">
+                <h1 class="footer-heading"> Contact Us </h1>
+                <p class="footer-paragraph">
+                    <i class="fas fa-home mr-3"></i> 123 Matharasha Street, Rajagiri, Tamil Nadu <br>
+                    <i class="fas fa-envelope mr-3"></i> rajagirirasibakery@gmail.com <br>
+                    <i class="fas fa-phone mr-3"></i> +91 94434 76738 <br>
+                    <i class="fa-brands fa-whatsapp mr-3"></i> +91 94434 76738 <br>
+                    Mon - sun: 9 AM - 9 PM
+                </p>
+            </div>
+
+            <div class="mt-3 social text-white d-flex flex-row justify-content-center">
+                <i class="m-2 fab fa-facebook-f"></i>
+                <i class="m-2 fab fa-twitter"></i>
+                <i class="m-2 fab fa-google"></i>
+                <i class="m-2 fab fa-instagram"></i>
+            </div>
+            <div class="col-12 text-center">
+                <p class="text-center"></p>
+                <h5 class="footer-rights mt-3 mb-3">© 2024 Rajagiri Rasi Bakery. All rights reserved<a href="/" style="text-decoration: none; color:white;">.</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Add these scripts if not already included in your project -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+     
+</body>
+</html>
